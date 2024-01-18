@@ -14,6 +14,8 @@ import com.codercampus.Assignment11.domain.Transaction;
 public class TransactionRepository {
 	private List<Transaction> transactions = new ArrayList<>(100);
 	
+	
+
 	public TransactionRepository () {
 		super();
 		populateData();
@@ -23,6 +25,13 @@ public class TransactionRepository {
 		return transactions;
 	}
 
+	public Transaction findById (Long transactionId){
+		return transactions.get(transactionId.intValue()); // Cast transactionId to int
+	}
+	public Transaction save(Transaction transaction) {
+		transactions.add(transaction);
+			return transaction;
+	}
 	/*
 	 * To populate the transactions list with previously "serialized" data from the transactions.txt file
 	 * 
@@ -38,6 +47,7 @@ public class TransactionRepository {
 	 * The use case is easier to understand if you think about it as taking the contents of your java program
 	 *  and writing it out to a file, and or going from that file back into the a java program.
 	 */
+
 	@SuppressWarnings("unchecked")
 	public void populateData() {
 		try (FileInputStream fileInputStream = new FileInputStream("src/main/resources/doNotTouch/transactions.doNotTouch");
@@ -48,4 +58,5 @@ public class TransactionRepository {
 		} 
 		
 	}
+	
 }
