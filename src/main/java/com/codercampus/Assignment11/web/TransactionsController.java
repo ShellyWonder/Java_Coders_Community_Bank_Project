@@ -26,6 +26,7 @@ public class TransactionsController {
         //return points to view (file path)
         return "transactions";
     }
+    
     @GetMapping("/transactions/{transactionId}")
     public String getTransactionById(@PathVariable Long transactionId, ModelMap model) {
         Transaction transaction = transactionService.findById(transactionId);
@@ -34,10 +35,10 @@ public class TransactionsController {
     }
     
 
-    @PostMapping("/transactions")
+    @PostMapping("/transactions/add")
     public String addTransaction(Transaction transaction) {
          transactionService.save(transaction);
-        return "redirect:/";
+        return "redirect:/transactions";
     }
     
 }
