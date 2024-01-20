@@ -23,6 +23,9 @@
         th:object="${transaction}"
         method="post"
       >
+        <div>
+          <input type="hidden" th:field="*{id}" />
+        </div>
         <div class="col-md-6 mb-3">
           <label for="inputDate" class="form-label">Date</label>
           <input
