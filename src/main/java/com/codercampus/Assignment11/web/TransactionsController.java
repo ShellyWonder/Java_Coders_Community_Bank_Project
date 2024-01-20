@@ -10,9 +10,6 @@ import com.codercampus.Assignment11.domain.Transaction;
 import com.codercampus.Assignment11.service.TransactionService;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
-
-
 @Controller
 public class TransactionsController {
 
@@ -23,22 +20,28 @@ public class TransactionsController {
     public String getTransactions(ModelMap model) {
         Transaction transaction = new Transaction();
         model.put("transactions", transaction);
-        //return points to view (file path)
+        // return points to view (file path)
         return "transactions";
     }
-    
+
     @GetMapping("/transactions/{transactionId}")
     public String getTransactionById(@PathVariable Long transactionId, ModelMap model) {
         Transaction transaction = transactionService.findById(transactionId);
         model.put("transaction", transaction);
         return "transactions";
     }
-    
+
+    // update
+    @PostMapping("/transactions/{transactionId}")
+    public String PostPeople(Transaction transaction) {
+        Transaction savedTransaction = transactionService.save(transaction);
+        return "redirect:/transactions/" + savedTransaction.getId();
+    }
 
     @PostMapping("/transactions/add")
     public String addTransaction(Transaction transaction) {
-         transactionService.save(transaction);
+        transactionService.save(transaction);
         return "redirect:/transactions";
     }
-    
+
 }

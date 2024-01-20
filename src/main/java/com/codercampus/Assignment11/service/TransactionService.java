@@ -9,20 +9,23 @@ import com.codercampus.Assignment11.domain.*;
 @Service
 public class TransactionService {
 
-     private Long transactionId = 101L;
- 
- @Autowired
- private TransactionRepository transactionRepository;
- 
- public Transaction save (Transaction transaction){
-     transaction.setId(transactionId++);
-     return transactionRepository.save(transaction);
- 
- }
+    private Long transactionId = 101L;
 
-public Transaction findById(Long transactionId) {
-    return transactionRepository.findById(transactionId);
-    
-}
+    @Autowired
+    private TransactionRepository transactionRepository;
+
+    public Transaction save(Transaction transaction) {
+        if (transaction.getId() == null) {
+
+            transaction.setId(transactionId++);
+        }
+        return transactionRepository.save(transaction);
+
+    }
+
+    public Transaction findById(Long transactionId) {
+        return transactionRepository.findById(transactionId);
+
+    }
 
 }
