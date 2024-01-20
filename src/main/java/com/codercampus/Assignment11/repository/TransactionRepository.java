@@ -14,8 +14,6 @@ import com.codercampus.Assignment11.domain.Transaction;
 public class TransactionRepository {
 	private List<Transaction> transactions = new ArrayList<>(100);
 	
-	
-
 	public TransactionRepository () {
 		super();
 		populateData();
