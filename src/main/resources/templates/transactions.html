@@ -25,20 +25,26 @@
               <th scope="col">ID</th>
               <th scope="col">Date</th>
               <th scope="col">Retailer</th>
-              <th scope="col">Funds In</th>
-              <th scope="col">Funds Out</th>
+              <th scope="col">Description</th>
+              <th scope="col">Funds</th>
+              <th scope="col">Type</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <button><a href="/transactions/50">50</a></button>
-              </td>
-              <td>2020-01-01T19:04:48</td>
-              <td>H-E-B Grocery</td>
-              <td></td>
-              <td>41.36</td>
-            </tr>
+            <div th:each="transaction : ${transactions}">
+              <tr>
+                <td>
+                    <button onclick="window.location.href='/transactions/${transaction.id}'">
+                    <span th:text="${model.id}"></span>
+                  </button>
+                </td>
+                <td><span th:text="${model.date}"></span></td>
+                <td><span th:text="${model.retailer}"></span></td>
+                <td><span th:text="${model.description}"></span></td>
+                <td<span th:text="${model.amount}"></span></td>
+                <td><span th:text="${model.type}"></span></td>
+              </tr>
+            </div>
           </tbody>
         </table>
       </div>
