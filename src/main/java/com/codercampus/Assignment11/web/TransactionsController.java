@@ -1,5 +1,7 @@
 package com.codercampus.Assignment11.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,11 +19,13 @@ public class TransactionsController {
     private TransactionService transactionService;
 
     @GetMapping("/transactions")
-    public String getTransactions(ModelMap model) {
+    public String getAllTransactions(ModelMap model) {
+        List<Transaction> transactions = transactionService.findAll();
+
         Transaction transaction = new Transaction();
-        model.put("transactions", transaction);
-        // return points to view (file path)
-        return "transactions";
+        model.put("transactions", transactions);
+        model.put("transaction", transaction);
+        return "/transactions";
     }
 
     @GetMapping("/transactions/{transactionId}")
@@ -32,7 +36,7 @@ public class TransactionsController {
     }
 
     // update
-    @PostMapping("/transactions/{transactionId}")
+    @PostMapping("/transactions/update/{transactionId}")
     public String PostPeople(Transaction transaction) {
         Transaction savedTransaction = transactionService.save(transaction);
         return "redirect:/transactions/" + savedTransaction.getId();
