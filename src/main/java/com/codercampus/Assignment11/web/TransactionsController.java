@@ -52,4 +52,11 @@ public class TransactionsController {
         return "redirect:/transactions";
     }
     // #endregion
+
+    // #region Delete
+    @PostMapping("/transactions/delete/{transactionId}")
+    public String deleteTransaction(@PathVariable Long transactionId) {
+        transactionService.delete(transactionId);
+        return "redirect:/transactions";
+    }
 }

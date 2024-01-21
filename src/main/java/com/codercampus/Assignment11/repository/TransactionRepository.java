@@ -20,19 +20,30 @@ public class TransactionRepository {
 		populateData();
 	}
 
+	// #region Read
 	public List<Transaction> findAll() {
 		transactions.sort(Comparator.comparing(Transaction::getDate));
 		return transactions;
 	}
+	// #endregion
 
 	public Transaction findById(Long transactionId) {
 		return transactions.get(transactionId.intValue()); // Cast transactionId to int
 	}
 
+	// #region Create
 	public Transaction save(Transaction transaction) {
 		transactions.add(transaction);
 		return transaction;
 	}
+	// #endregion
+
+	// #region Delete
+	public void delete(Long transactionId) {
+		transactions.remove(transactionId.intValue()); // Cast transactionId to int
+		throw new UnsupportedOperationException("Unimplemented method 'delete'");
+	}
+	// #endregion
 	/*
 	 * To populate the transactions list with previously "serialized" data from the
 	 * transactions.txt file

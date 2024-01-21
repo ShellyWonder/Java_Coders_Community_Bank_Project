@@ -27,6 +27,7 @@ public class TransactionService {
     }
 
     // #endregion
+
     public Transaction findById(Long transactionId) {
         return transactionRepository.findById(transactionId);
 
@@ -35,6 +36,13 @@ public class TransactionService {
     // #region Read
     public List<Transaction> findAll() {
         return transactionRepository.findAll();
+    }
+    // #endregion
+
+    // #region Delete
+    public void delete(Long transactionId) {
+        transactionRepository.delete(transactionId);
+        throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
     // #endregion
 }
