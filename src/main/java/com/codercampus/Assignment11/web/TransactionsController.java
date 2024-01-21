@@ -18,6 +18,7 @@ public class TransactionsController {
     @Autowired
     private TransactionService transactionService;
 
+    // #region Read
     @GetMapping("/transactions")
     public String getAllTransactions(ModelMap model) {
         List<Transaction> transactions = transactionService.findAll();
@@ -28,6 +29,7 @@ public class TransactionsController {
         return "/transactions";
     }
 
+    // #endregion
     @GetMapping("/transactions/{transactionId}")
     public String getTransactionById(@PathVariable Long transactionId, ModelMap model) {
         Transaction transaction = transactionService.findById(transactionId);
@@ -35,17 +37,19 @@ public class TransactionsController {
         return "transactions";
     }
 
-    // update
+    // #region Update
     @PostMapping("/transactions/update/{transactionId}")
     public String PostPeople(Transaction transaction) {
         Transaction savedTransaction = transactionService.save(transaction);
         return "redirect:/transactions/" + savedTransaction.getId();
     }
+    // #endregion
 
+    // #region Create
     @PostMapping("/transactions/add")
     public String addTransaction(Transaction transaction) {
         transactionService.save(transaction);
         return "redirect:/transactions";
     }
-
+    // #endregion
 }

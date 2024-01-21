@@ -16,6 +16,7 @@ public class TransactionService {
     @Autowired
     private TransactionRepository transactionRepository;
 
+    // #region Create
     public Transaction save(Transaction transaction) {
         if (transaction.getId() == null) {
 
@@ -25,12 +26,15 @@ public class TransactionService {
 
     }
 
+    // #endregion
     public Transaction findById(Long transactionId) {
         return transactionRepository.findById(transactionId);
 
     }
 
+    // #region Read
     public List<Transaction> findAll() {
         return transactionRepository.findAll();
     }
+    // #endregion
 }
