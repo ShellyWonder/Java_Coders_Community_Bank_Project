@@ -18,7 +18,7 @@
     <link href="/css/site.css" rel="stylesheet" />
     <!--Favicon-->
     <link rel="icon" type="img/png" href="img/favicon/favicon-32x32.png" />
-    <!--add ADOBE FONTS LINK HERE-->
+   
   </head>
 
   <body class="d-flex flex-column h-100">
@@ -54,15 +54,21 @@
             <li class="nav-item">
               <a class="nav-link" href="/transactions">Transactions</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">The Code</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+              data-bs-toggle="dropdown"aria-expanded="false"></a>>The Code</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Controller</a></li>
+                <li><a class="dropdown-item" href="#">Services</a></li>
+                <li><a class="dropdown-item" href="#">Repository</a></li>
+            </ul>
             </li>
             <li class="nav-item">
               <a
                 class="nav-link"
                 target="_blank"
                 href="https://github.com/ShellyWonder/Java_Coders_Community_Bank_Project"
-                >Git Repo</a
+                >GitHub Repo</a
               >
             </li>
             <li class="nav-item">
@@ -87,7 +93,7 @@
               <br />A Demo Coding Project
             </h1>
             <h4 class="lead">
-             
+             Welcome to the Java Coders Community Bank, a fictious business demo project by SJ Wonder.
               This fullstack, responsive application allows you to read, add,
               update and delete transactions using Java, Spring Boot, Thymeleaf,
               and vanilla Javascript.
