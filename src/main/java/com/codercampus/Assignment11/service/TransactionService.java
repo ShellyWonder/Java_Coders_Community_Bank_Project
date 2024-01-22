@@ -28,10 +28,12 @@ public class TransactionService {
 
     // #endregion
 
+    // #region Transaction Details by ID
     public Transaction findById(Long transactionId) {
         return transactionRepository.findById(transactionId);
 
     }
+    // #endregion
 
     // #region Read
     public List<Transaction> findAll() {

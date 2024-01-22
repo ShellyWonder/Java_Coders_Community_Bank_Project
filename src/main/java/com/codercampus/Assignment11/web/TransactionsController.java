@@ -30,12 +30,15 @@ public class TransactionsController {
     }
 
     // #endregion
+
+    // #region Transaction Details by ID
     @GetMapping("/transactions/{transactionId}")
     public String getTransactionById(@PathVariable Long transactionId, ModelMap model) {
         Transaction transaction = transactionService.findById(transactionId);
         model.put("transaction", transaction);
         return "transactions";
     }
+    // #endregion
 
     // #region Update
     @PostMapping("/transactions/update/{transactionId}")
@@ -59,4 +62,5 @@ public class TransactionsController {
         transactionService.delete(transactionId);
         return "redirect:/transactions";
     }
+    // #endregion
 }
