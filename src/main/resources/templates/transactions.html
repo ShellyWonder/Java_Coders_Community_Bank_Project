@@ -1,54 +1,52 @@
+<!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-  <head>
-    <title>Online Bank</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
-    <!-- <link rel="stylesheet" href="/css/transactions.css"/> -->
+  <head th:replace="layout :: common-head(~{::title})">
+    <title>Java Coders Community Bank: Transactions</title>
   </head>
-  <body>
-    <div class="container-xxl h-100">
-      <div class="table-responsive">
-        <table class="table table-striped table-bordered caption-top">
-          <caption>
-            Transaction History
-          </caption>
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Date</th>
-              <th scope="col">Retailer</th>
-              <th scope="col">Description</th>
-              <th scope="col">Funds</th>
-              <th scope="col">Type</th>
-            </tr>
-          </thead>
-          <tbody>
-            <div th:each="transaction : ${transactions}">
+  <body class="d-flex flex-column h-100">
+    <header th:replace="layout :: header"></header>
+    <main>
+      <div class="container">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered caption-top">
+            <caption>
+              Transaction History
+            </caption>
+            <thead>
               <tr>
-                <td>
-                    <button onclick="window.location.href='/transactions/${transaction.id}'">
-                    <span th:text="${model.id}"></span>
-                  </button>
-                </td>
-                <td><span th:text="${model.date}"></span></td>
-                <td><span th:text="${model.retailer}"></span></td>
-                <td><span th:text="${model.description}"></span></td>
-                <td<span th:text="${model.amount}"></span></td>
-                <td><span th:text="${model.type}"></span></td>
+                <th scope="col">ID</th>
+                <th scope="col">Date</th>
+                <th scope="col">Retailer</th>
+                <th scope="col">Description</th>
+                <th scope="col">Funds</th>
+                <th scope="col">Type</th>
               </tr>
-            </div>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              <div th:each="transaction : ${transactions}">
+                <tr>
+                  <td>
+                    <button
+                      onclick="window.location.href='/transactions/${transaction.id}'"
+                    >
+                      <span th:text="${model.id}"></span>
+                    </button>
+                  </td>
+                  <td><span th:text="${model.date}"></span></td>
+                  <td><span th:text="${model.retailer}"></span></td>
+                  <td><span th:text="${model.description}"></span></td>
+                  <td><span th:text="${model.amount}"></span></td>
+                  <td><span th:text="${model.type}"></span></td>
+                </tr>
+              </div>
+            </tbody>
+          </table>
+          <p class="text-center">Information Completely Fictious!</p>
+        </div>
       </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </main>
+    <footer th:replace="layout :: footer"></footer>
+    <div th:replace="layout :: CustomJS"></div>
+    <div th:replace="layout :: BootstrapJS"></div>
   </body>
 </html>
