@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-  <head th:fragment="common-head">
+  <head th:fragment="common-head(title)">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Java Coders Community Bank: A Fictious Demo Project</title>
+    <title
+      th:text="${title} ?: 'Java Coders Community Bank: A Fictious Business Demo'"
+    ></title>
     <meta
       name="description"
       content="Welcome to the Java Coders Community Bank, a fictious business demo project by SJ Wonder.
