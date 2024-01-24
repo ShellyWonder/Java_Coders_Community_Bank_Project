@@ -41,7 +41,7 @@ public class TransactionsController {
     // #endregion
 
     // #region Update
-    @PostMapping("/transactions/update/{transactionId}")
+    @PostMapping("/update_transaction/{transactionId}")
     public String PostPeople(Transaction transaction) {
         Transaction savedTransaction = transactionService.save(transaction);
         return "redirect:/transactions/" + savedTransaction.getId();
@@ -49,7 +49,7 @@ public class TransactionsController {
     // #endregion
 
     // #region Create
-    @PostMapping("/transactions/add")
+    @PostMapping("/add_transaction")
     public String addTransaction(Transaction transaction) {
         transactionService.save(transaction);
         return "redirect:/transactions";
@@ -57,7 +57,7 @@ public class TransactionsController {
     // #endregion
 
     // #region Delete
-    @PostMapping("/transactions/delete/{transactionId}")
+    @PostMapping("/delete_transaction/{transactionId}")
     public String deleteTransaction(@PathVariable Long transactionId) {
         transactionService.delete(transactionId);
         return "redirect:/transactions";
