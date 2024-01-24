@@ -5,7 +5,7 @@
   </head>
   <body class="d-flex justify-content-center align-items-center min-vh-100">
     <header th:replace="layout :: header"></header>
-    <main>
+    <main class="flex-shrink-0">
       <h1 class="d-flex justify-content-center">Add Transaction</h1>
       <form
         class="row g-3"
@@ -61,7 +61,7 @@
             <button
               type="button"
               class="btn btn-success"
-              onclick="addTransaction()"
+              onclick="return validateAndSubmitForm()"
             >
               Submit
             </button>
@@ -115,7 +115,7 @@
         </div>
       </div>
     </div>
-
+    <!-- scripts -->
     <div th:replace="layout :: CustomJS"></div>
     <div th:replace="layout :: BootstrapJS"></div>
   </body>
