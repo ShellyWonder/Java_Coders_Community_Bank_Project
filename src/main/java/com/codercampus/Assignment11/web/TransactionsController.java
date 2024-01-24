@@ -32,11 +32,11 @@ public class TransactionsController {
     // #endregion
 
     // #region Transaction Details by ID
-    @GetMapping("/transactions/{transactionId}")
+    @GetMapping("/transaction_details/{transactionId}")
     public String getTransactionById(@PathVariable Long transactionId, ModelMap model) {
         Transaction transaction = transactionService.findById(transactionId);
         model.put("transaction", transaction);
-        return "transactions";
+        return "transaction_details";
     }
     // #endregion
 
