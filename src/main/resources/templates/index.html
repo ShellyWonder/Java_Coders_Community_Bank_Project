@@ -1,89 +1,12 @@
+<!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-  <head>
-    <title>Java Coders Community Bank: The Repository Code</title>
-     
-    <!--Custom CSS-->
-    <link href="/css/site.css" rel="stylesheet" />
-    <!--Favicon-->
-    <link rel="icon" type="img/png" href="img/favicon/favicon-32x32.png" />
-   <!--ADOBE FONTS -->
-  <link rel="stylesheet" href="https://use.typekit.net/liw5mjc.css">
-<!--Bootstrap Icons-->
-<link
-rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-/>
-  <!-- Bootstrap CSS -->
-  <link
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-  rel="stylesheet"
-  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-  crossorigin="anonymous"
-/>
+  <head th:replace="layout :: common-head(~{::title})">
+    <title>Java Coders Community Bank: A Fictious Demo Project</title>
   </head>
 
   <body class="d-flex flex-column h-100">
     <!--Nav section-->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand logoFont" href="index.html"
-          ><img
-            src="img/logoMarkWhite.png"
-            class="p-1"
-            width="30"
-            height="39"
-          />Java Coders Community Bank</a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarCollapse"
-          aria-controls="navbarCollapse"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" th:href="@{/transactions}">Transactions</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
-              data-bs-toggle="dropdown"aria-expanded="false"><a>The Code</a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/controllercode.html">Controller</a></li>
-                <li><a class="dropdown-item" href="/servicecode.html">Services</a></li>
-                <li><a class="dropdown-item" href="/repositorycode.html">Repository</a></li>
-            </ul>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                target="_blank"
-                href="https://github.com/ShellyWonder/Java_Coders_Community_Bank_Project"
-                >GitHub Repo</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                target="_blank"
-                href="http://www.wonderwebdev.com/#contact"
-                >Contact</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <header th:replace="layout :: header"></header>
     <!--Main section-->
     <main class="flex-shrink-0">
       <div class="container col-xxl-8 px-4 py-5">
@@ -189,60 +112,9 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
       </div>
     </main>
     <!--footer section-->
-    <footer class="footer mt-auto py-3 bg-dark sticky-footer">
-      <div class="container-fluid">
-        <div class="row row-cols-1 row-cols-lg-3 gy-2">
-          <div class="col order-last order-lg-first text-light">
-            <div>
-              &copy;<span id="currentYear" class="text-muted"></span>&nbsp;SJ
-              Wonder |
-              <a href="mailto:shelly@wonderwebdev.com"
-                >shelly@wonderwebdev.com</a
-              >
-            </div>
-          </div>
-          <div
-            class="col d-flex align-items-center justify-content-start justify-content-lg-center"
-          >
-            <img
-              src="/img/White logo - no background.svg"
-              alt="SJ Wonder Logo"
-              height="65"
-            />
-          </div>
-          <!--using font awesome for social media icons-->
-          <div
-            class="col d-flex align-items-center justify-content-start justify-content-lg-end"
-          >
-            <div class="row">
-              <div class="col social">
-                <a href="https://www.linkedin.com/in/shelly-wonder-153990233/"
-                  ><i class="bi bi-linkedin"></i>
-                </a>
-              </div>
-              <div class="col social">
-                <a href="https://github.com/ShellyWonder" target="_blank"
-                  ><i class="bi bi-github"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--container close tag-->
-      </div>
-    </footer>
-    <!--Custom JS -->
-    <script src="/js/transactions.js"></script>
-    <!-- Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-      crossorigin="anonymous"
-    ></script>
+    <footer th:replace="layout :: footer"></footer>
+    <!-- scripts -->
+    <div th:replace="layout :: CustomJS"></div>
+    <div th:replace="layout :: BootstrapJS"></div>
   </body>
 </html>
