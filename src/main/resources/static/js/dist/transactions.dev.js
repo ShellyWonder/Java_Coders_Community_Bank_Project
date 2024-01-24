@@ -21,10 +21,8 @@ function validateAndSubmitForm() {
   if (!isFormValid) {
     alert("Please fill in all fields before submitting the form.");
     return false;
-  } // Submit the form
+  } // Clear the form
 
-
-  document.getElementById("myForm").submit(); // Clear the form
 
   fields.forEach(function (field) {
     document.getElementById(field).value = "";

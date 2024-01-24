@@ -23,9 +23,6 @@ function validateAndSubmitForm() {
     return false;
   }
 
-  // Submit the form
-  document.getElementById("myForm").submit();
-
   // Clear the form
   fields.forEach((field) => {
     document.getElementById(field).value = "";
