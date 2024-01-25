@@ -62,5 +62,27 @@ public class TransactionsController {
         transactionService.delete(transactionId);
         return "redirect:/transactions";
     }
+
+    // #endregion
+    // #region Static views
+    @GetMapping("/")
+    public String index() {
+        return "index"; // The name of the Thymeleaf template for the index view
+    }
+
+    @GetMapping("/controller_code")
+    public String controllerCode() {
+        return "controller_code"; // The name of the Thymeleaf template for the controller code view
+    }
+
+    @GetMapping("/service_code")
+    public String serviceCode() {
+        return "service_code"; // The name of the Thymeleaf template for the service code view
+    }
+
+    @GetMapping("/repository_code")
+    public String repositoryCode() {
+        return "repository_code"; // The name of the Thymeleaf template for the repository code view
+    }
     // #endregion
 }
