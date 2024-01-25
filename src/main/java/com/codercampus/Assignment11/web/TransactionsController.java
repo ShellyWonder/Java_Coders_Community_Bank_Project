@@ -26,6 +26,9 @@ public class TransactionsController {
         Transaction transaction = new Transaction();
         model.put("transactions", transactions);
         model.put("transaction", transaction);
+
+        model.addAttribute("activePage", "transactions"); // Enables Thymeleaf template to know which
+                                                          // navbar link to highlight
         return "/transactions";
     }
 
@@ -42,7 +45,7 @@ public class TransactionsController {
 
     // #region Update
     @PostMapping("/update_transaction/{transactionId}")
-    public String PostPeople(Transaction transaction) {
+    public String postTransactions(Transaction transaction) {
         Transaction savedTransaction = transactionService.save(transaction);
         return "redirect:/transactions/" + savedTransaction.getId();
     }
@@ -62,11 +65,12 @@ public class TransactionsController {
         transactionService.delete(transactionId);
         return "redirect:/transactions";
     }
-
     // #endregion
+
     // #region Static views
     @GetMapping("/")
-    public String index() {
+    public String index(ModelMap model) {
+        model.addAttribute("activePage", "index");
         return "index"; // The name of the Thymeleaf template for the index view
     }
 
