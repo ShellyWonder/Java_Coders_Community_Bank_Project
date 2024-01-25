@@ -3,9 +3,8 @@
   <head th:fragment="common-head(title)">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title
-      th:text="${title} ?: 'Java Coders Community Bank: A Fictious Business Demo'"
-    ></title>
+    <title th:text="${title} ?: 'Java Coders Community Bank'"></title>
+    <!--SEO-->
     <meta
       name="description"
       content="Welcome to the Java Coders Community Bank, a fictious business demo project by SJ Wonder.
@@ -24,7 +23,7 @@
     <!--Custom CSS-->
     <link rel="stylesheet" href="/css/site.css" />
     <!--Favicon-->
-    <link rel="icon" type="img/png" href="img/favicon/favicon-32x32.png" />
+    <link rel="icon" type="img/png" href="/img/favicon/favicon-32x32.png" />
     <!--ADOBE FONTS -->
     <link rel="stylesheet" href="https://use.typekit.net/liw5mjc.css" />
     <!--Bootstrap Icons-->
@@ -43,15 +42,15 @@
 
   <body class="d-flex flex-column h-100">
     <header th:fragment="header">
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand logoFont" href="index.html"
+          <a class="navbar-brand logoFont" th:href="@{/}"
             ><img
               src="img/logoMarkWhite.png"
               class="p-1"
               width="30"
               height="39"
-            />Java Coders Community Bank: A Fictious Demo Project</a
+            />Java Coders Community Bank</a
           >
           <button
             class="navbar-toggler"
@@ -67,7 +66,7 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html"
+                <a class="nav-link active" aria-current="page" th:href="@{/}"
                   >Home</a
                 >
               </li>
@@ -85,19 +84,21 @@
                   >The Code</a
                 >
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <a class="dropdown-item" href="/controller_code.html"
-                      >Controller</a
+                  <li class="code-view">
+                    <a class="dropdown-item" th:href="@{/controller_code}"
+                      >Controller Code</a
                     >
                   </li>
+                  <hr />
                   <li>
-                    <a class="dropdown-item" href="/service_code.html"
-                      >Services</a
+                    <a class="dropdown-item" th:href="@{/service_code}"
+                      >Service Code</a
                     >
                   </li>
+                  <hr />
                   <li>
-                    <a class="dropdown-item" href="/repository_code.html"
-                      >Repository</a
+                    <a class="dropdown-item" th:href="@{/repository_code}"
+                      >Repository Code</a
                     >
                   </li>
                 </ul>
@@ -130,15 +131,14 @@
       </div>
     </main>
     <footer th:fragment="footer">
-      <div class="footer mt-auto py-3 bg-dark sticky-footer">
+      <div class="footer mt-auto py-3 sticky-footer">
         <div class="container-fluid">
           <div class="row row-cols-1 row-cols-lg-3 gy-2">
-            <div class="col order-last order-lg-first text-light">
-              <div>
-                &copy;<span id="currentYear" class="text-muted"></span>&nbsp;SJ
-                Wonder |
+            <div class="col order-last order-lg-first">
+              <div class="text-light">
+                &copy;<span id="currentYear"></span>&nbsp;SJ Wonder |
                 <a href="mailto:shelly@wonderwebdev.com"
-                  >shelly@wonderwebdev.com</a
+                  ><strong>shelly@wonderwebdev.com</strong></a
                 >
               </div>
             </div>
