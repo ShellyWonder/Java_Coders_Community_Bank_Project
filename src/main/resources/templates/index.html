@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-  <head th:replace="layout :: common-head(~{::title})">
-    <title>Java Coders Community Bank: A Fictious Demo Project</title>
-  </head>
+  <head th:replace="layout :: common-head(~{::title})"> </head>
 
   <body class="d-flex flex-column h-100">
     <!--Nav section-->
@@ -17,7 +15,8 @@
               <br />A Demo Coding Project
             </h1>
             <h4 class="lead">
-             Welcome to the Java Coders Community Bank, a fictious business demo project by SJ Wonder.
+              Welcome to the Java Coders Community Bank,
+              <strong>a fictious business demo project</strong> by SJ Wonder.
               This fullstack, responsive application allows you to read, add,
               update and delete transactions using Java, Spring Boot, Thymeleaf,
               and vanilla Javascript.
@@ -25,40 +24,40 @@
             <ul class="fa-ul pt-2">
               <li>
                 <span class="bi-li"
-                  ><i class="bi bi-check-circle-fill"></i></i></span
+                  ><i class="bi bi-check-circle-fill"></i></span
                 >Spring Boot MVC
               </li>
               <li>
                 <span class="bi-li"
-                  ><i class="bi bi-check-circle-fill"></i></i></span
+                  ><i class="bi bi-check-circle-fill"></i></span
                 >Thymeleaf Templating
               </li>
 
               <li>
                 <span class="bi-li"
-                  ><i class="bi bi-check-circle-fill"></i></i></span
+                  ><i class="bi bi-check-circle-fill"></i></span
                 >Repository and Service Layers
               </li>
               <li>
                 <span class="bi-li"
-                  ><i class="bi bi-check-circle-fill"></i></i></span
-                >CRUD Operations
+                  ><i class="bi bi-check-circle-fill"></i></span
+                >Full CRUD Operations
               </li>
 
               <li>
                 <span class="bi-li"
-                  ><i class="bi bi-check-circle-fill"></i></i></span
+                  ><i class="bi bi-check-circle-fill"></i></span
                 >Custom CSS and Bootstrap Layout
               </li>
 
               <li>
                 <span class="bi-li"
-                  ><i class="bi bi-check-circle-fill"></i></i></span
+                  ><i class="bi bi-check-circle-fill"></i></span
                 >Javascript Functionalities
               </li>
               <li>
                 <span class="bi-li"
-                  ><i class="bi bi-check-circle-fill"></i></i></span
+                  ><i class="bi bi-check-circle-fill"></i></span
                 >Pagination
               </li>
             </ul>
@@ -66,7 +65,7 @@
               <a
                 type="button"
                 class="btn btn-primary btn-lg px-4 me-md-2"
-                href="app.html"
+                th:href="@{/transactions}"
                 >Let's Get Started</a
               >
             </div>
@@ -100,7 +99,6 @@
 
           <div class="col">
             <div class="col-10 col-sm-8">
-              
               <img
                 src="/img/JCCB_Logo.jpg"
                 class="img-fluid center-block mx-auto"
