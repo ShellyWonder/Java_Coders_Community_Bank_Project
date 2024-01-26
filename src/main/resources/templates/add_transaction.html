@@ -1,76 +1,82 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
   <head th:replace="layout :: common-head(~{::title})">
-    <title>Java Coders Community Bank: Add a Transaction</title>
+    Java Coders Community Bank: Add a Transaction
   </head>
-  <body class="d-flex justify-content-center align-items-center min-vh-100">
+  <body class="d-flex flex-column h-100">
     <header th:replace="layout :: header"></header>
-    <main class="flex-shrink-0">
-      <h1 class="d-flex justify-content-center">Add Transaction</h1>
-      <form
-        class="row g-3"
-        action=""
-        th:action="@{/transactions/add}"
-        th:object="${transaction}"
-        method="post"
-        id="myForm"
-        onsubmit="return validateAndSubmitForm()"
-      >
-        <input type="hidden" th:field="*{id}" />
+    <main class="flex-fill">
+      <div class="d-flex justify-content-center align-items-center">
+        <h1 class="d-flex justify-content-center">Add Transaction</h1>
+        <form
+          class="row g-3"
+          action=""
+          th:action="@{/transactions/add}"
+          th:object="${transaction}"
+          method="post"
+          id="myForm"
+          onsubmit="return validateAndSubmitForm()"
+        >
+          <input type="hidden" th:field="*{id}" />
 
-        <div class="col-md-6 mb-3">
-          <label for="inputDate" class="form-label">Date</label>
-          <input
-            type="datetime-local"
-            class="form-control"
-            th:field="*{date}"
-          />
-        </div>
-
-        <div class="col-md-6 mb-3">
-          <label for="retailer" class="form-label">Retailer</label>
-          <input type="text" class="form-control" th:field="*{retailer}" />
-        </div>
-
-        <div class="col-12 mb-3">
-          <label for="description" class="form-label">Description</label>
-          <input type="text" class="form-control" th:field="*{description}" />
-        </div>
-        <div class="col-12 mb-3">
-          <label for="amount" class="form-label">Amount</label>
-          <input
-            type="number"
-            class="form-control"
-            step="0.01"
-            th:field="*{amount}"
-          />
-        </div>
-        <div class="col-12mb-3">
-          <label for="type" class="form-label">Type</label>
-          <input type="text" class="form-control" th:field="*{type}" />
-        </div>
-        <div class="col d-flex justify-content-end mb-3">
-          <div
-            class="btn-group"
-            role="group"
-            aria-label="add transaction buttons"
-          >
-            <button type="button" class="btn btn-warning" onclick="resetForm()">
-              Reset
-            </button>
-            <button
-              type="submit"
-              class="btn btn-success"
-              onclick="return validateAndSubmitForm()"
-            >
-              Submit
-            </button>
-            <a th:href="@{/transactions}" class="btn btn-danger" role="button"
-              >Cancel</a
-            >
+          <div class="col-md-6 mb-3">
+            <label for="inputDate" class="form-label">Date</label>
+            <input
+              type="datetime-local"
+              class="form-control"
+              th:field="*{date}"
+            />
           </div>
-        </div>
-      </form>
+
+          <div class="col-md-6 mb-3">
+            <label for="retailer" class="form-label">Retailer</label>
+            <input type="text" class="form-control" th:field="*{retailer}" />
+          </div>
+
+          <div class="col-12 mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" th:field="*{description}" />
+          </div>
+          <div class="col-12 mb-3">
+            <label for="amount" class="form-label">Amount</label>
+            <input
+              type="number"
+              class="form-control"
+              step="0.01"
+              th:field="*{amount}"
+            />
+          </div>
+          <div class="col-12mb-3">
+            <label for="type" class="form-label">Type</label>
+            <input type="text" class="form-control" th:field="*{type}" />
+          </div>
+          <div class="col d-flex justify-content-end mb-3">
+            <div
+              class="btn-group"
+              role="group"
+              aria-label="add transaction buttons"
+            >
+              <button
+                type="button"
+                class="btn btn-warning"
+                onclick="resetForm()"
+              >
+                Reset
+              </button>
+              <button
+                type="submit"
+                class="btn btn-success"
+                onclick="return validateAndSubmitForm()"
+              >
+                Submit
+              </button>
+              <a th:href="@{/transactions}" class="btn btn-danger" role="button"
+                >Cancel</a
+              >
+            </div>
+          </div>
+        </form>
+      </div>
     </main>
     <footer th:replace="layout :: footer"></footer>
     <!-- Bootstrap Modal -->
