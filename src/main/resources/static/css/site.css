@@ -1,3 +1,7 @@
+/*NOTE TO REVIEWER: Many classes are overrides of bootstrap classes. 
+Therefore "!important" is needed. */
+
+
 :root {
    --sjw-dark-color: #265C4B;/*darkest green */
   --sjw-lightbg-color: #8FC1B5;/*lightest--bg */
@@ -9,19 +13,14 @@
 }
 
 
-.logoFont {
-  font-family: ltc-broadway-engraved, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
 main{
+  /*NOTE TO REVIEWER: Concerning consistancy, I used rgba here
+   because the format used for opasacity elsewhere in the file 
+   did not produce the desired effect */
   background-color: rgba(143, 193, 181, 0.25);/*--sjw-lightbg-color @25% opacity */
-  
-}
-main > .container {
-  padding: 60px 15px 0;
-  margin-bottom: 5rem;
-  min-height: 90vh;
+  }
+main.flex-fill {
+   min-height: 100vh;
 }
 
 h1,
@@ -35,13 +34,37 @@ h6 {
 h4 {
   font-size: 4em;
 }
-/*Navbar styles*/
-.navbar-dark {
-  
-  background-color: var(--sjw-dark-color) !important;
+/*nav styles*/
+.logoFont {
+  font-family: ltc-broadway-engraved, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.navbar {
+   background-color: var(--sjw-dark-color)!important;
+  opacity: 0.95;
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.3);
+}
+.navbar-brand {
+  color: whitesmoke !important;
+  margin-top: .25rem;
+}
+.nav-item, .nav-link {
+  color: var(--sjw-light-color)!important; 
+  font-size: 1.3em;
+}
+.nav-item:hover,
+.nav-link:hover,
+.nav-item:focus,
+.nav-link:focus {
+  color: var(--sjw-lightbg-color)!important;
+}
+
+ .navbar-nav .nav-item .nav-link.active {
+  color: whitesmoke !important;
 }
 .dropdown-menu {
-  background-color: var(--sjw-tertiary-color) !important;
+  background-color: var(--sjw-light-color); 
   opacity: 0.95;
 }
 .code-view {
@@ -50,14 +73,13 @@ h4 {
 .code-view:hover {
   background-color: var(--sjw-secondary-color) !important;
 }
+/*END nav styles*/
+
 .checkListIcon {
   color: var(--sjw-secondary-color);
 }
-.table-striped {
-  background-color: var(--sjw-lightbg-color);
-}
 
-/* table styles */
+/* form styles */
 /* form background override bootstrap: added opacity 25%*/
 form {
   background-color: #a5bf6b;
@@ -68,13 +90,18 @@ form:hover {
 }
 /* table styles */
 thead {
-  background-color: #1d5902;
-  color: var(--sjw-light-color);
+  background-color: #1d5902 !important;
+  color: var(--sjw-light-color)!important;
 }
+.table-striped {
+  background-color: var(--sjw-lightbg-color);
+}
+/*END table styles*/
 
-/*--button styles override Bootstrap styles--*/
+/*--button styles --*/
 .btn.outline-primary {
   color: var(--sjw-secondary-color)!important;
+ 
 }
 .btn-outline-primary:hover,
 .btn-outline-primary:active,
@@ -88,6 +115,7 @@ thead {
   color: white !important;
   background-color: var(--sjw-primary-color) !important;
   border-color: var(--sjw-light-color)!important;
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
 }
 
 .btn-primary:hover,
@@ -102,20 +130,21 @@ thead {
 
 /*footer styles*/
 .sticky-footer {
-  position: sticky;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
 }
 
 footer {
+  font-size: 1.25em;
   background-color: var(--sjw-dark-color) !important;
   padding-right: 1rem;
   color: var(--sjw-light-color);
 }
 
 footer .social > a {
-  font: 4em;
+  font-size: 2.25em;
   color: var(--sjw-light-color);
   opacity: 0.75;
 }
@@ -124,6 +153,6 @@ footer .social > a:hover {
   color: var(--sjw-secondary-color);
   opacity: 0.9;
 }
-footer .text-light> a{
+footer .text-light > a{
   color: var(--sjw-light-color)!important;
 }

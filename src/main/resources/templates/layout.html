@@ -42,15 +42,16 @@
 
   <body class="d-flex flex-column h-100">
     <header th:fragment="header">
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+      <nav class="navbar navbar-expand-md fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand logoFont" th:href="@{/}"
             ><img
               src="img/logoMarkWhite.png"
-              class="p-1"
-              width="30"
-              height="39"
-            />Java Coders Community Bank</a
+              class="mt-1"
+              width="40"
+              height="49"
+            />
+            Java Coders Community Bank</a
           >
           <button
             class="navbar-toggler"
@@ -65,10 +66,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <li
-                class="nav-item"
-                th:class="${activePage == 'index' ? 'active' : ''}"
-              >
+              <li class="nav-item">
                 <a
                   class="nav-link"
                   th:href="@{/}"
@@ -77,10 +75,7 @@
                 >
               </li>
 
-              <li
-                class="nav-item"
-                th:class="${activePage == 'transactions' ? 'active' : ''}"
-              >
+              <li class="nav-item">
                 <a
                   class="nav-link"
                   th:href="@{/transactions}"
@@ -147,7 +142,7 @@
       </div>
     </main>
     <footer th:fragment="footer">
-      <div class="footer mt-auto py-3 sticky-footer">
+      <div class="footer mt-auto py-3 sticky-bottom sticky-footer">
         <div class="container-fluid">
           <div class="row row-cols-1 row-cols-lg-3 gy-2">
             <div class="col order-last order-lg-first">
