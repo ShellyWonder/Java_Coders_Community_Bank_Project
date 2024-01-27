@@ -1,5 +1,6 @@
 "use strict";
 
+// path: src/main/resources/static/js/transactions.js
 function validateAndSubmitForm() {
   var fields = ["type", "description", "amount", "date", "retailer"];
   var isFormValid = true; // Clear previous validations
@@ -53,4 +54,8 @@ function resetForm() {
 
 function copyrightYear() {
   document.getElementById("currentYear").textContent = new Date().getFullYear();
+}
+
+function goToTransactionDetails(transactionId) {
+  window.location.href = "/transaction_details/" + transactionId;
 }

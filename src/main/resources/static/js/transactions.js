@@ -1,3 +1,4 @@
+// path: src/main/resources/static/js/transactions.js
 function validateAndSubmitForm() {
   const fields = ["type", "description", "amount", "date", "retailer"];
   let isFormValid = true;
@@ -57,4 +58,7 @@ function resetForm() {
 //Dynamically set the current year
 function copyrightYear() {
   document.getElementById("currentYear").textContent = new Date().getFullYear();
+}
+function goToTransactionDetails(transactionId) {
+  window.location.href = "/transaction_details/" + transactionId;
 }
