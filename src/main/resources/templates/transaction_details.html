@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head th:replace="layout :: common-head(~{::title})">
-    <title>Java Coders Community Bank: Transaction Details</title>
+    Java Coders Community Bank: Transaction Details
   </head>
-  <body class="d-flex h-100">
+  <body class="d-flex flex-column h-100">
     <header th:replace="layout :: header"></header>
 
-    <main class="flex-shrink-0">
+    <main class="flex-fill">
       <div class="d-flex justify-content-center align-items-center">
         <h1 class="d-flex justify-content-center">Transaction Details</h1>
         <div class="card border border-success-subtle">
@@ -15,7 +15,7 @@
               <li class="nav-item">
                 <a
                   class="nav-link active"
-                  th:href="@{/update_transaction/{id}(id=${model.id})}"
+                  th:href="@{/update_transaction/{id}(id=${transaction.id})}"
                   >Update Transaction</a
                 >
               </li>
@@ -33,24 +33,25 @@
           </div>
           <div class="card-body row">
             <h5 class="card-title col d-flex justify-content-center">
-              <span th:text="${model.retailer}"></span>
+              <span th:text="${transaction.retailer}"></span>
             </h5>
 
             <div class="col card-text m-3">
               <strong>Description:</strong>
-              <span th:text="${model.description}"></span>
+              <span th:text="${transaction.description}"></span>
             </div>
 
             <div class="col card-text m-3">
-              <strong>Type:</strong> <span th:text="${model.type}"></span>
+              <strong>Type:</strong> <span th:text="${transaction.type}"></span>
             </div>
 
             <div class="col card-text m-3">
-              <strong>Date:</strong> <span th:text="${model.date}"></span>
+              <strong>Date:</strong> <span th:text="${transaction.date}"></span>
             </div>
 
             <div class="col card-text m-3">
-              <strong>Amount:</strong> <span th:text="${model.amount}"></span>
+              <strong>Amount:</strong>
+              <span th:text="${transaction.amount}"></span>
             </div>
             <div col>
               <a th:href="@{/transactions}" class="btn btn-primary w-100"

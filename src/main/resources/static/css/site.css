@@ -89,13 +89,18 @@ form:hover {
   border: 3px solid var(--sjw-secondary-color);
 }
 /* table styles */
-thead {
-  background-color: #1d5902 !important;
-  color: var(--sjw-light-color)!important;
+.custom-table thead {
+  background-color: var(--sjw-tertiary-color)!important;
+  color: whitesmoke;
 }
-.table-striped {
-  background-color: var(--sjw-lightbg-color);
+
+
+.custom-table tbody tr:nth-of-type(odd) {
+  background-color: var(--sjw-primary-color)!important;
+  
 }
+
+
 /*END table styles*/
 
 /*--button styles --*/
