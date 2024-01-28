@@ -10,6 +10,8 @@ Therefore "!important" is needed. */
   --sjw-tertiary-color: #146551;/*footer */
   --sjw-light-color: #a5bf6b;
   --sjw-headlineblue-color: #203354;
+  --sjw-creditgreen-color: green;
+  --sjw-debitred-color: #d30000;
 }
 
 
@@ -41,7 +43,7 @@ h4 {
   font-style: normal;
 }
 .navbar {
-   background-color: var(--sjw-dark-color)!important;
+  background-color: var(--sjw-dark-color)!important;
   opacity: 0.95;
   box-shadow: 0 6px 10px 0 rgba(0,0,0,0.3);
 }
@@ -51,7 +53,7 @@ h4 {
 }
 .nav-item, .nav-link {
   color: var(--sjw-light-color)!important; 
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 .nav-item:hover,
 .nav-link:hover,
@@ -89,21 +91,25 @@ form:hover {
   border: 3px solid var(--sjw-secondary-color);
 }
 /* table styles */
-.custom-table thead {
-  background-color: var(--sjw-tertiary-color)!important;
-  color: whitesmoke;
-}
-
-
-.custom-table tbody tr:nth-of-type(odd) {
-  background-color: var(--sjw-primary-color)!important;
+table {
+  border: 3px solid var(--sjw-secondary-color);
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.3);
   
 }
-
-
+.custom-table {
+  background-color: var(--sjw-tertiary-color)!important;
+  color:var(--sjw-light-color)!important;
+}
 /*END table styles*/
 
 /*--button styles --*/
+.btn-primary {
+  color: white !important;
+  background-color: var(--sjw-primary-color) !important;
+  border-color: var(--sjw-light-color)!important;
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
+}
+
 .btn.outline-primary {
   color: var(--sjw-secondary-color)!important;
  
@@ -116,12 +122,6 @@ form:hover {
   background-color: var(--sjw-light-color);
 }
 
-.btn-primary {
-  color: white !important;
-  background-color: var(--sjw-primary-color) !important;
-  border-color: var(--sjw-light-color)!important;
-  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
-}
 
 .btn-primary:hover,
 .btn-primary:active,
@@ -141,23 +141,36 @@ form:hover {
   width: 100%;
 }
 
-footer {
+.styleFooter {
   font-size: 1.25em;
-  background-color: var(--sjw-dark-color) !important;
+  background-color: var(--sjw-dark-color);
   padding-right: 1rem;
   color: var(--sjw-light-color);
 }
 
 footer .social > a {
-  font-size: 2.25em;
+  font-size: 2em;
   color: var(--sjw-light-color);
   opacity: 0.75;
 }
 
-footer .social > a:hover {
-  color: var(--sjw-secondary-color);
+/*footer email link color */
+footer .text-light > a{
+  color: var(--sjw-light-color);
+}
+footer .text-light > a:hover{
+  color: var(--sjw-lightbg-color);
+}
+footer .social > a:hover{
+  color: var(--sjw-lightbg-color);
   opacity: 0.9;
 }
-footer .text-light > a{
-  color: var(--sjw-light-color)!important;
+/*END footer styles*/
+.credit-green {
+  color: var(--sjw-creditgreen-color);
 }
+
+.debit-red {
+  color: var(--sjw-debitred-color);
+}
+
