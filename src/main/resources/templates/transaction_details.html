@@ -46,7 +46,12 @@
             </div>
 
             <div class="col card-text m-3">
-              <strong>Date:</strong> <span th:text="${transaction.date}"></span>
+              <strong>Date:</strong>
+              <td>
+                <span
+                  th:text="${#temporals.format(transaction.date, 'dd MMMM yyyy, HH:mm')}"
+                ></span>
+              </td>
             </div>
 
             <div class="col card-text m-3">

@@ -33,7 +33,12 @@
                   ></a>
                 </td>
 
-                <td><span th:text="${transaction.date}"></span></td>
+                <td>
+                  <span
+                    th:text="${#temporals.format(transaction.date, 'dd MMMM yyyy, HH:mm')}"
+                  ></span>
+                </td>
+
                 <td><span th:text="${transaction.retailer}"></span></td>
                 <td><span th:text="${transaction.description}"></span></td>
                 <td>
