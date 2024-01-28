@@ -93,12 +93,14 @@ form:hover {
 /* table styles */
 table {
   border: 3px solid var(--sjw-secondary-color);
-  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.3);
-  
-}
-.custom-table {
+  box-shadow: 3px 6px 6px 5px rgba(0,0,0,0.4);
+    }
+/*table header*/
+ .custom-table {
   background-color: var(--sjw-tertiary-color)!important;
   color:var(--sjw-light-color)!important;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 /*END table styles*/
 
@@ -122,7 +124,6 @@ table {
   background-color: var(--sjw-light-color);
 }
 
-
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:visited,
@@ -135,7 +136,7 @@ table {
 
 /*footer styles*/
 .sticky-footer {
-  position: fixed;
+  position: sticky;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -166,11 +167,15 @@ footer .social > a:hover{
   opacity: 0.9;
 }
 /*END footer styles*/
+
+/*--"amount" and "type" col styles --*/
 .credit-green {
   color: var(--sjw-creditgreen-color);
+  font-weight: bold;
 }
 
 .debit-red {
   color: var(--sjw-debitred-color);
+  font-weight: bold;
 }
 
