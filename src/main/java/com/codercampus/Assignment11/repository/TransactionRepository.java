@@ -21,9 +21,16 @@ public class TransactionRepository {
 	}
 
 	// #region Read
-	public List<Transaction> findAll() {
+	public List<Transaction> findAll(int page, int size) {
 		transactions.sort(Comparator.comparing(Transaction::getDate));
-		return transactions;
+		int startIndex = page * size;
+		int endIndex = Math.min((startIndex + size), transactions.size());
+		return transactions.subList(startIndex, endIndex);
+	}
+
+	// Needed for pagination
+	public int count() {
+		return transactions.size();
 	}
 	// #endregion
 

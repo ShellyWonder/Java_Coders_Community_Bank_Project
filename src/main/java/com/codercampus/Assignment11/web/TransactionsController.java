@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.codercampus.Assignment11.domain.Transaction;
 import com.codercampus.Assignment11.service.TransactionService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class TransactionsController {
@@ -20,15 +21,20 @@ public class TransactionsController {
 
     // #region Read
     @GetMapping("/transactions")
-    public String getAllTransactions(ModelMap model) {
-        List<Transaction> transactions = transactionService.findAll();
+    public String getAllTransactions(ModelMap model, @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int size) {
+        List<Transaction> transactions = transactionService.findAll(page, size);
 
+        int totalPages = transactionService.getTotalPages(size);
         Transaction transaction = new Transaction();
         model.put("transactions", transactions);
         model.put("transaction", transaction);
-
-        model.addAttribute("activePage", "transactions"); // Enables Thymeleaf template to know which
-                                                          // navbar link to highlight
+        // Enables Thymeleaf template to know which navbar link to highlight
+        model.addAttribute("activePage", "transactions");
+        // Enables Thymeleaf template pagination
+        model.addAttribute("transactions", transactions);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", totalPages);
         return "/transactions";
     }
 

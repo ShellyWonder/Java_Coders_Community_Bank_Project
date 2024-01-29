@@ -36,8 +36,18 @@ public class TransactionService {
     // #endregion
 
     // #region Read
-    public List<Transaction> findAll() {
-        return transactionRepository.findAll();
+    public List<Transaction> findAll(int page, int size) {
+        return transactionRepository.findAll(page, size);
+    }
+
+    // needed for pagination
+    public int getTotalPages(int size) {
+        int totalCount = transactionRepository.count();
+
+        if (totalCount % size > 0) {
+            totalCount++;
+        }
+        return (int) Math.ceil((double) totalCount / size);
     }
     // #endregion
 
