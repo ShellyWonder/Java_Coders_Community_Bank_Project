@@ -62,3 +62,7 @@ function copyrightYear() {
 function goToTransactionDetails(transactionId) {
   window.location.href = "/transaction_details/" + transactionId;
 }
+//print page
+function printPage() {
+  window.print();
+}

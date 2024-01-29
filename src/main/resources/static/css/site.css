@@ -15,7 +15,7 @@ Therefore "!important" is needed. */
 }
 
 
-main{
+body{
   /*NOTE TO REVIEWER: Concerning consistancy, I used rgba here
    because the format used for opasacity elsewhere in the file 
    did not produce the desired effect */
@@ -23,6 +23,11 @@ main{
   }
 main.flex-fill {
    min-height: 100vh;
+}
+
+.custom-container {
+  margin-left: 1.25em;
+  margin-right: 1.25em;
 }
 
 h1,
@@ -133,6 +138,13 @@ table {
   border-color: var(--sjw-primary-color) !important;
   background-color: var(--sjw-secondary-color)!important;
 }
+/*Print Btn*/
+.print-btn {
+  color: var(--sjw-light-color);
+  background-color: var(--sjw-headlineblue-color);
+  border-color: var(--sjw-tertiary-color);
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
+}
 
 /*footer styles*/
 .sticky-footer {
@@ -178,4 +190,15 @@ footer .social > a:hover{
   color: var(--sjw-debitred-color);
   font-weight: bold;
 }
+/*END "amount" and "type" col styles --*/
 
+/*media queries*/
+/*print page*/
+@media print {
+  .btn, nav, .header, .footer {
+      display: none; /* Hide elements during printing */
+  }
+  .print-btn {
+    display: none;
+  }
+}
