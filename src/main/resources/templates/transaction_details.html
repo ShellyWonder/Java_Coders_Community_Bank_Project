@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head th:replace="layout :: common-head(~{::title})">
-    Java Coders Community Bank: Transaction Details
+    JCCB: Transaction Details
   </head>
   <body class="d-flex flex-column h-100">
     <header th:replace="layout :: header"></header>
 
     <main class="flex-fill">
-      <div class="container-fluid custom-container">
+      <div class="container">
         <div class="row mt-5">
-          <div class="col-md-12">
+          <div class="col-md-12 pt-3">
             <div class="d-flex justify-content-between align-items-center pt-5">
               <h1 class="text-center">Transaction Details</h1>
               <button
                 onclick="function printPage() { window.print(); }; printPage();"
-                class="btn print-btn me-3"
+                class="btn print-btn"
               >
                 Print Page
               </button>
             </div>
           </div>
           <div class="col-md-12">
-            <div class="card border border-success-subtle">
+            <div
+              class="card border border-2 border-success-subtle shadow-lg mt-2"
+            >
               <div class="card-header">
                 <ul class="nav nav-pills card-header-pills">
                   <li class="nav-item">
@@ -37,7 +39,7 @@
                       Transaction</a
                     >
                   </li>
-                  <li class="nav-item bs-danger">
+                  <li class="nav-item">
                     <a class="nav-link disabled" aria-disabled="true"
                       ><i class="bi bi-trash3"></i>Delete Transaction</a
                     >
@@ -45,37 +47,86 @@
                 </ul>
               </div>
               <div class="card-body row">
-                <h2 class="card-title col d-flex justify-content-center">
-                  <span th:text="${transaction.retailer}"></span>
+                <h2
+                  class="card-title col-12 d-flex justify-content-center mt-2"
+                >
+                  Transaction #<span th:text="${transaction.id}"></span>
                 </h2>
-
-                <div class="col card-text m-3">
-                  <strong>Description:</strong>
-                  <span th:text="${transaction.description}"></span>
-                </div>
-
-                <div class="col card-text m-3">
-                  <strong>Type:</strong>
-                  <span th:text="${transaction.type}"></span>
-                </div>
-
-                <div class="col card-text m-3">
-                  <h5><strong>Date:</strong></h5>
-                  <td>
-                    <span
-                      th:text="${#temporals.format(transaction.date, 'dd MMMM yyyy, HH:mm')}"
-                    ></span>
-                  </td>
-                </div>
-
-                <div class="col card-text m-3">
-                  <strong>Amount:</strong>
-                  <span th:text="${transaction.amount}"></span>
-                </div>
-                <div col>
-                  <a th:href="@{/transactions}" class="btn btn-primary w-100"
-                    >Return to Transactions</a
+                <div class="row justify-content-center">
+                  <div
+                    class="col-md-4 d-flex justify-content-end category-text"
                   >
+                    Retailer:
+                  </div>
+                  <div
+                    class="col-md-4 d-flex justify-content-start card-text"
+                    th:text="${transaction.retailer}"
+                  ></div>
+                </div>
+
+                <div class="row justify-content-center">
+                  <div
+                    class="col-md-4 d-flex justify-content-end category-text"
+                  >
+                    Description:
+                  </div>
+                  <div
+                    class="col-md-4 d-flex justify-content-start card-text"
+                    th:text="${transaction.description}"
+                  ></div>
+                </div>
+
+                <div class="row justify-content-center">
+                  <div
+                    class="col-md-4 d-flex justify-content-end category-text"
+                  >
+                    Date:
+                  </div>
+                  <div
+                    class="col-md-4 d-flex justify-content-start card-text"
+                    th:text="${#temporals.format(transaction.date, 'dd MMMM yyyy, HH:mm')}"
+                  ></div>
+                </div>
+
+                <div class="row justify-content-center">
+                  <div
+                    class="col-md-4 d-flex justify-content-end category-text"
+                  >
+                    Type:
+                  </div>
+                  <!-- * The following <div> contains a ternary operator.
+                     * It is a shorthand way of writing an if-else statement.
+                     * The syntax is as follows:
+                     * (condition) ? (if true) : (if false)
+                     * In this case, the condition is whether the transaction type is 'C' (credit) or not.
+                     * If it is, then the class 'credit-green' is appended to the div.
+                     * If it is not, then the class 'debit-red' is appended to the div.
+                      * The class 'credit-green' is defined in src/main/resources/static/css/style.css -->
+                  <div
+                    class="col-md-4 d-flex justify-content-start card-text"
+                    th:classappend="${transaction.type == 'C'} ? 'credit-green' : 'debit-red'"
+                    th:text="${transaction.type}"
+                  ></div>
+                </div>
+
+                <div class="row justify-content-center mb-2">
+                  <div
+                    class="col-md-4 d-flex justify-content-end category-text"
+                  >
+                    Transaction Amount:
+                  </div>
+                  <div
+                    class="col-md-4 d-flex justify-content-start card-text"
+                    th:classappend="${transaction.type == 'C'} ? 'credit-green' : 'debit-red'"
+                    th:text="${transaction.type == 'C'} ? '+' + ${transaction.amount} : '-' + ${transaction.amount}"
+                  ></div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <a th:href="@{/transactions}" class="btn btn-primary w-100"
+                      >Return to Transactions</a
+                    >
+                  </div>
                 </div>
               </div>
             </div>
