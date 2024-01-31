@@ -11,17 +11,12 @@ import com.codercampus.Assignment11.domain.*;
 @Service
 public class TransactionService {
 
-    private Long transactionId = 101L;
-
     @Autowired
     private TransactionRepository transactionRepository;
 
     // #region Create
     public Transaction save(Transaction transaction) {
-        if (transaction.getId() == null) {
 
-            transaction.setId(transactionId++);
-        }
         return transactionRepository.save(transaction);
 
     }

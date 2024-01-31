@@ -35,14 +35,31 @@ public class TransactionRepository {
 	// #endregion
 
 	// #region Transaction Details by ID
-	public Transaction findById(Long Id) {
-		return transactions.get(Id.intValue()); // Cast Id to int
+	public Transaction findById(Long id) {
+
+		for (Transaction t : transactions) {
+			if (t.getId().equals(id)) {
+				return t;
+			}
+		}
+
+		return null;
+
 	}
 
 	// #endregion
 
 	// #region Create
+	private Long nextId = 1L;
+
 	public Transaction save(Transaction transaction) {
+
+		if (transaction.getId() == null) {
+			transaction.setId(nextId);
+			nextId++;
+		}
+
+		// save transaction
 		transactions.add(transaction);
 		return transaction;
 	}
