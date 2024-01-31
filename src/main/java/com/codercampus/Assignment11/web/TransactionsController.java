@@ -41,12 +41,13 @@ public class TransactionsController {
     // #endregion
 
     // #region Transaction Details by ID
-    @GetMapping("/transaction_details/{transactionId}")
-    public String getTransactionById(@PathVariable Long transactionId, ModelMap model) {
-        Transaction transaction = transactionService.findById(transactionId);
-        model.put("transaction", transaction);
+    @GetMapping("/transaction_details/{id}")
+    public String getTransactionDetails(@PathVariable Long id, ModelMap model) {
+        Transaction transaction = transactionService.findById(id);
+        model.addAttribute("transaction", transaction);
         return "transaction_details";
     }
+
     // #endregion
 
     // #region Update

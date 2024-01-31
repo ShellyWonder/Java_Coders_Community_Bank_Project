@@ -29,8 +29,8 @@ public class TransactionService {
     // #endregion
 
     // #region Transaction Details by ID
-    public Transaction findById(Long transactionId) {
-        return transactionRepository.findById(transactionId);
+    public Transaction findById(Long Id) {
+        return transactionRepository.findById(Id);
 
     }
     // #endregion

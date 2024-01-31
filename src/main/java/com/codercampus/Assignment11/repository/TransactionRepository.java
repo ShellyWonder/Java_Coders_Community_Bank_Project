@@ -35,9 +35,10 @@ public class TransactionRepository {
 	// #endregion
 
 	// #region Transaction Details by ID
-	public Transaction findById(Long transactionId) {
-		return transactions.get(transactionId.intValue()); // Cast transactionId to int
+	public Transaction findById(Long Id) {
+		return transactions.get(Id.intValue()); // Cast Id to int
 	}
+
 	// #endregion
 
 	// #region Create
@@ -60,12 +61,20 @@ public class TransactionRepository {
 	public void populateData() {
 		try (FileInputStream fileInputStream = new FileInputStream(
 				"src/main/resources/doNotTouch/transactions.doNotTouch");
-				ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);) {
-			this.transactions = (List<Transaction>) objectInputStream.readObject();
-		} catch (IOException | ClassNotFoundException e) {
+				ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
+			List<Transaction> loadedTransactions = (List<Transaction>) objectInputStream.readObject();
+			transactions.clear();
+			transactions.addAll(loadedTransactions);
+		} catch (IOException e) {
+			// Handle IO exception (e.g., log error, provide a default data, or throw a
+			// custom exception)
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// Handle class not found exception (e.g., log error or throw a custom
+			// exception)
 			e.printStackTrace();
 		}
-
 	}
+
 	// #endregion
 }
