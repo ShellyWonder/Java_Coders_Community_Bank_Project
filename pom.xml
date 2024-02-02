@@ -53,6 +53,11 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+        <groupId>com.netlify</groupId>
+        <artifactId>netlify-maven-plugin</artifactId>
+        <version>1.2.0</version>
+      </plugin>
 		</plugins>
 	</build>
 
