@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -59,11 +60,21 @@ public class TransactionsController {
     // #endregion
 
     // #region Create
+    @GetMapping("/add_transaction")
+    public String showAddTransactionForm(Model model) {
+
+        Transaction transaction = new Transaction();
+        model.addAttribute("transaction", transaction);
+
+        return "add_transaction";
+    }
+
     @PostMapping("/add_transaction")
     public String addTransaction(Transaction transaction) {
         transactionService.save(transaction);
         return "redirect:/transactions";
     }
+
     // #endregion
 
     // #region Delete
