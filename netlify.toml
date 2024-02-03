@@ -1,5 +1,5 @@
 [build]
-  command = "mvn clean install"
+  command = "./mvnw clean install"
   publish = "target/"
 
 [build.environment]
